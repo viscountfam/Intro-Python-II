@@ -68,22 +68,22 @@ while True:
         else:
             print("There is nothing in that direction")
     elif choice == "s":
-        if player.position.n_to != None:
-            player.position = player.position.n_to
+        if player.position.s_to != None:
+            player.position = player.position.s_to
             print(f'You are at: \n{player.position.name}\n{player.position.description}')
             player.position.items_in_room()
         else:
             print("There is nothing in this direction")
     elif choice == "e":
-        if player.position.n_to != None:
-            player.position = player.position.n_to
+        if player.position.e_to != None:
+            player.position = player.position.e_to
             print(f'You are at: \n{player.position.name}\n{player.position.description}')
             player.position.items_in_room()
         else:
             print("There is nothing in this direction")
     elif choice == "w":
-        if player.position.n_to != None:
-            player.position = player.position.n_to
+        if player.position.w_to != None:
+            player.position = player.position.w_to
             print(f'You are at: \n{player.position.name}\n{player.position.description}')
             player.position.items_in_room()
         else:

@@ -20,7 +20,10 @@ class Room:
         self.items.append(item)
 
     def items_in_room(self):
-        if len(self.items):
-            print("****************\n Items in this room:")
-            for x in self.items: 
-                print(x)
+        if self.items:
+            if len(self.items):
+                print("****************\n Items in this room:")
+                for x in self.items: 
+                    print(x) 
+        else:
+            print("there is no item here")               
