@@ -1,5 +1,6 @@
 from room import Room
-
+from player import Player
+from item import Item
 # Declare all the rooms
 
 room = {
@@ -38,7 +39,8 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-
+player = Player(room['outside'])
+# print(f'You are located at:\n{player.position.name}\n{player.position.description}')
 # Write a loop that:
 #
 # * Prints the current room name
@@ -49,3 +51,53 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+while True:
+    direction = input("What do you feel like doing: N: North, E: East, S: South, W: West, C: Check Inventory Q: Quit Game ")
+
+    if len(direction.split(' ')) > 1:
+        choice = direction.split(' ')
+        verb = choice[0]
+        obj = choice[1]
+    if choice.lower() == 'q':
+        break
+    elif choice.lower() == "n":
+        if player.position.n_to != None:
+            player.position = player.position.n_to
+            print(f'You are at: \n{player.position.name}\n{player.position.description}')
+            player.position.items_in_room()
+        else:
+            print("There is nothing in that direction")
+    elif choice.lower() == "s":
+        if player.position.n_to != None:
+            player.position = player.position.n_to
+            print(f'You are at: \n{player.position.name}\n{player.position.description}')
+            player.position.items_in_room()
+        else:
+            print("There is nothing in this direction")
+    elif choice.lower() == "e":
+        if player.position.n_to != None:
+            player.position = player.position.n_to
+            print(f'You are at: \n{player.position.name}\n{player.position.description}')
+            player.position.items_in_room()
+        else:
+            print("There is nothing in this direction")
+    elif choice.lower() == "w":
+        if player.position.n_to != None:
+            player.position = player.position.n_to
+            print(f'You are at: \n{player.position.name}\n{player.position.description}')
+            player.position.items_in_room()
+        else:
+            print("There is nothing in this direction")
+    elif choice.lower() == "i":
+        player.inventory()
+    elif verb == 'get':
+        if obj in player.position.items:
+            player.pick_up(obj)
+            player.position.items.remove(obj)
+        else:
+            print('There is no item in this room')
+    elif verb == 'drop':
+        player.drop(obj)
+        player.position.items.append(obj)
+    else:
+        print("That is not a valid choice")  
